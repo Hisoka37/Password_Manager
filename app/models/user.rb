@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   
   has_many :user_passwords
-  has_many :password, through: :user_passwords
+  has_many :passwords, through: :user_passwords
 end
