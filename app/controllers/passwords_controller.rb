@@ -1,6 +1,6 @@
 class PasswordsController  < ApplicationController
     before_action :authenticate_user!
-    before_action :set_password
+    before_action :set_password, except: [:index, :new, :create]
 
     def index
         @passwords = current_user.password   
@@ -14,8 +14,12 @@ class PasswordsController  < ApplicationController
     end
 
     def create
-        @password = current_user.passwords.new(password_params)
-        if  @password.save
+        # @password = current_user.passwords.create(password_params)
+        # if  @password.persisted?
+        @password = Password.new(password_params)
+        @password.user_passwords.new(user: current_user )
+
+        if @password.save
             redirect_to @password
         else  
             render :new, status: :unprocessable_entity
