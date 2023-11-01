@@ -20,4 +20,7 @@
     <%= form.text_field :password%>
 </div>
 <%= form.button%>
+<%= button_tag "Delete", form: "delete_password"%>
 <%end%>
+
+<%= form_with model: password, method: :delete, id: "delete_password", data: {turbo_confirm: " Are You Sure?"} %>

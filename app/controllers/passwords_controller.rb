@@ -3,7 +3,7 @@ class PasswordsController  < ApplicationController
     before_action :set_password, except: [:index, :new, :create]
 
     def index
-        @passwords = current_user.password   
+        @passwords = current_user.passwords   
     end
 
     def show 
@@ -37,6 +37,10 @@ class PasswordsController  < ApplicationController
         end
     end
 
+    def destroy
+        @password.destroy 
+        redirect_to root_path
+    end
     private
 
     def password_params

@@ -1,3 +1,5 @@
-<h1 class="text-3xl font-bold underlin">Password manager</h1>
-
+<div class="flex justify-between items-center" >
+<h1 class="text-2xl font-bold underlin mb-0">Password manager</h1>
 <%= link_to "New Password", new_password_path%>
+</div>
+<%= render @passwords %>
