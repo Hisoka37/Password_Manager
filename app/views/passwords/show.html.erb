@@ -1,4 +1,5 @@
 
+    <%= link_to "← Back", root_path,  class: "block mb-4 no-underline text-xs text-blue-500"%>
     <div class ="mb-4 flex justify-between items-center">
     <h1 class="mb-0">
         <%= @password.url%>
@@ -8,9 +9,10 @@
             </svg>
         <% end %>
     </h1>
-    <%= link_to "Edit",  edit_password_path, class: " no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= link_to "Edit",  edit_password_path, class: " no-underline bg-blue-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" %>
     </div>
-    <h6>Username / Email</h6>
+    <h3>Credentiels</h3>
+    <h6 class='text-sm mb-1'>Username / Email</h6>
     <div class="flex gap-1 items-center">
         <pre class="my-0 flex-grow"><code><%= @password.username%></code></pre>
 <%= button_tag class: "px-5 py-2.5 bg-gray-200 rounded", data: { controller: "clipboard", action: "click->clipboard#copy", clipboard_content_value: @password.username } do %>
@@ -22,7 +24,7 @@
 <span class="hidden copied_btn">Copied</span>
 <% end %>
     </div>
-    <h6 > Password</h6>
+    <h6 class='text-sm mb-1 mt-4'> Password</h6>
     <div class="flex gap-1">
         <pre class=" my-0 flex-grow"><code><%= @password.password%></code></pre>
         <%= button_tag "Copy" ,class:"px-5 py-2.5 bg-gray-200 rounded", data: { controller: "clipboard", action: "click->clipboard#copy" ,clipboard_content_value: @password.password} do %>
@@ -34,3 +36,6 @@
 <span class="hidden copied_btn">Copied</span>
 <% end %>
     </div>
+
+<h3>Shares</h3>
+<%= link_to "Add User" ,new_password_share_path(@password) %>
