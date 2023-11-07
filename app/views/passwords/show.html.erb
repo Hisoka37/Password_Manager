@@ -38,4 +38,13 @@
     </div>
 
 <h3>Shares</h3>
+
+<div class ='flex flex-col gop-2 divide-y  divide-gray-100'>
 <%= link_to "Add User" ,new_password_share_path(@password) %>
+<% @password.users.excluding(current_user).each do |user| %>
+    <div class= 'flex justify-between items-center'>
+        <div><%= user.email%></div>
+        <%= button_to "Remove", password_share_path(@password, user), method: :delete, data: {turbo_confirm: 'Are You Sure'}, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+<% end %>
+</div>
