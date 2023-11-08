@@ -1,12 +1,6 @@
   <%= link_to "← Back", :back ,  class: "block mb-4 no-underline text-xs text-blue-500"%>
 <h1> Share Passowrd</h1>
-<%= form_with model:@user_password, url: password_shares_path(@password) do |form|%>
-    <div>
-         <%= form.label :user_id%>
-         <%= form.collection_select :user_id, @users, :id, :email%>
-    </div>
-
-    <div>
-        <%= form.submit "Share",  class: " cursor-pointer no-underline bg-blue-500 hover:bg-blue-500 text-white mt-4 font-bold py-2 px-4 rounded" %>
-    </div>
-<%end%>
+<%= render "form",
+  password: @password,
+  user_password: @user_password
+%>
