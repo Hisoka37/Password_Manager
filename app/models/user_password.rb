@@ -17,11 +17,11 @@ class UserPassword < ApplicationRecord
     role == 'editor'
   end
 
-  def editable
+  def editable?
     owner? || editor?
   end
 
-  def shareable 
+  def shareable? 
     owner? 
   end
 
