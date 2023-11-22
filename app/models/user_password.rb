@@ -1,9 +1,11 @@
 class UserPassword < ApplicationRecord
-  ROLES= %w{owner viewer editor}
+  ROLES= %w{ viewer editor owner}
   belongs_to :user
   belongs_to :password
 
   validates :role, presence: true, inclusion: {in: ROLES}
+
+  attribute :role, default: :viewer
 
   def owner?
     role == 'owner'
@@ -23,6 +25,10 @@ class UserPassword < ApplicationRecord
 
   def shareable? 
     owner? 
+  end
+
+  def destroyable_by?
+    owner?
   end
 
 end
