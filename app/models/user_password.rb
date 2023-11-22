@@ -27,7 +27,7 @@ class UserPassword < ApplicationRecord
     owner? 
   end
 
-  def destroyable_by?
+  def destroyable?
     owner?
   end
 

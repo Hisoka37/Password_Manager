@@ -8,7 +8,7 @@
       </svg>
     <% end %>
   </h1>
-  <%= link_to "Edit",   edit_password_path(@password) if @password.editable_by?(current_user) %>
+  <%= link_to "Edit",   edit_password_path(@password) if @user_password.editable? %>
 </div>
 
 <h3>Credentiels</h3>
@@ -38,14 +38,14 @@
 </div>
 <div class = " mb-4 my-4 flex justify-between items-center ">
   <h3>Shared With</h3>
-    <%= link_to "Add User" ,new_password_share_path(@password) if @password.shareable_by?(current_user) %>
+    <%= link_to "Add User" ,new_password_share_path(@password) if @user_password.shareable? %>
 </div>
 <div class ='flex flex-col gop-2 divide-y  divide-gray-100'>
   <% @password.user_passwords.includes(:user).each do |user_password| %>
     <div class= 'flex justify-between items-center'>
       <div><%= user_password.user.email%></div>
       <div><%= user_password.role.titleize%></div>
-      <%= button_to "Remove", password_share_path(@password, user_password.user), method: :delete, data: {turbo_confirm: 'Are You Sure'}, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+      <%= button_to "Remove", password_share_path(@password, user_password.user), method: :delete, data: {turbo_confirm: 'Are You Sure'} if @user_password.destroyable? %>
     </div>
   <% end %>
 </div>
