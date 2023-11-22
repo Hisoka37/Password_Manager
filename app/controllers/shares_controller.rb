@@ -1,7 +1,6 @@
 class SharesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_password
-    before_action :authorize_item, only: [:update, :edit, :destroy]
 
     def new
         @user_password = UserPassword.new
