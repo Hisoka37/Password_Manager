@@ -4,6 +4,7 @@ class PasswordsController  < ApplicationController
     before_action :require_editable_permissions, only: [:edit, :update]
     before_action :require_deletable_permissions, only: [:destroy]
 
+
     def index
         @passwords = current_user.passwords   
     end
@@ -48,14 +49,13 @@ class PasswordsController  < ApplicationController
 
     def set_password
         @password = current_user.passwords.find(params[:id])
-        @user_password = current_user.user_passwords.find_by(password: @password)
     end
 
     def require_editable_permissions
-        redirect_to @password unless @user_password.editable?
+        redirect_to @password unless user_password.editable?
     end
 
     def require_deletable_permissions
-        redirect_to @password unless @user_password.destroyable?
+        redirect_to @password unless user_password.destroyable?
     end
 end
