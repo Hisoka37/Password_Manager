@@ -70,8 +70,6 @@
 ## 💻 Getting Started <a name="getting-started"></a>
 
 >  Clone repo via cmd -  https://github.com/Hisoka37/RailsPass.git
-> Run  to install dependencies
-> Run npm start to show a preview in the browser
 
 ### Prerequisites
 
@@ -154,7 +152,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> If you like this project... please leave us a comment on our Twitter/LinkedIn accounts, Thank
+> We would greatly appreciate it if you could leave a comment about this project on our Twitter or LinkedIn accounts. Your feedback is important to us. Thank you.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
