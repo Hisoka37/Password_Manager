@@ -7,18 +7,6 @@ class UserPassword < ApplicationRecord
 
   attribute :role, default: :viewer
 
-  def owner?
-    role == 'owner'
-  end
-
-  def viewer? 
-    role == 'viewer'
-  end
-
-  def editor?
-    role == 'editor'
-  end
-
   def editable?
     owner? || editor?
   end
@@ -29,6 +17,20 @@ class UserPassword < ApplicationRecord
 
   def destroyable?
     owner?
+  end
+
+  private
+
+  def owner?
+    role == 'owner'
+  end
+
+  def viewer? 
+    role == 'viewer'
+  end
+
+  def editor?
+    role == 'editor'
   end
 
 end

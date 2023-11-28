@@ -24,16 +24,15 @@ class SharesController < ApplicationController
 
     private
 
-    def user_password_params
-        params.require(:user_password).permit(:user_id, :role)
-    end
-
     def set_password
         @password = current_user.passwords.find(params[:password_id])
     end
 
-    
+    def user_password_params
+        params.require(:user_password).permit(:user_id, :role)
+    end
+
     def require_shareable_permissions
-        redirect_to @password unless user_password.shareable?
-    en
+        redirect_to @password unless current_user_password.shareable?
+    end
 end

@@ -52,10 +52,10 @@ class PasswordsController  < ApplicationController
     end
 
     def require_editable_permissions
-        redirect_to @password unless user_password.editable?
+        redirect_to @password unless current_user_password.editable?
     end
 
     def require_deletable_permissions
-        redirect_to @password unless user_password.destroyable?
+        redirect_to @password unless current_user_password.destroyable?
     end
 end
