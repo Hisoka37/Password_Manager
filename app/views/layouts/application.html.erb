@@ -6,16 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <main class="prose mx-auto mt-28 px-5 ">
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-      <%= yield %>
+    <main class=" prose   mx-auto">
+      <div class = "    ">
+        <%=  render "shared/flash" %>
+        <%=  render "shared/nav" %>
+        
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
