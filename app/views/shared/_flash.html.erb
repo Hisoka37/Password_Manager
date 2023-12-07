@@ -1,2 +1,7 @@
- <div class="notice"><%= notice %></div>
- <div class="alert"><%= alert %></div>
+ <% if notice%>
+ <div  class="p-4 bg-green-200 text-green-800"><%= notice %></div>
+ <% end %>
+ 
+ <% if alert%>
+ <div class="p-4 rounded bg-red-100 text-red-800"><%= alert %></div>
+ <% end %>
