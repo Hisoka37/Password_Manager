@@ -8,13 +8,28 @@ class SharesController < ApplicationController
     end
 
     def create
-        @user_password = @password.user_passwords.new(user_password_params)
-        if @user_password.save
-            redirect_to @password
-        else
+        email = user_password_params[:email]&.strip&.downcase
+        if email.present?
+          user = User.find_by(email: email)
+      
+          if user
+            @user_password = @password.user_passwords.new(user_id: user.id, role: user_password_params[:role])
+      
+            if @user_password.save
+              redirect_to @password
+            else
+              render :new, status: :unprocessable_entity
+            end
+          else
+            flash[:alert] = "No user found with this email: #{email}"
             render :new, status: :unprocessable_entity
+          end
+        else
+          flash[:alert] = "Please provide a valid email"
+          render :new, status: :unprocessable_entity
         end
-    end
+      end
+      
 
     def destroy
         @password.user_passwords.where(user_id: params[:id]).destroy_all 
@@ -29,7 +44,7 @@ class SharesController < ApplicationController
     end
 
     def user_password_params
-        params.require(:user_password).permit(:user_id, :role)
+        params.require(:user_password).permit(:user_id, :role, :email)
     end
 
     def require_shareable_permissions
