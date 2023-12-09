@@ -18,3 +18,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+
+.notice{
+    background-color: rgb(84, 235, 142);
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
