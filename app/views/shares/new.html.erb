@@ -1,0 +1,6 @@
+  <%= link_to "← Back", passwords_path ,  class: "block mb-4 no-underline text-xs text-blue-500"%>
+<h1> Share Passowrd</h1>
+<%= render "form",
+  password: @password,
+  user_password: @user_password
+%>
