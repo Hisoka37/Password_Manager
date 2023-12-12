@@ -14,6 +14,7 @@
  *= require_self
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Merienda');
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -25,3 +26,21 @@
     border-radius: 0.25rem;
     padding: 1rem;
 }
+
+.railspass {
+    color: #434b54;
+    font-size: 3rem;
+    margin-top: 1rem;
+    font-family: Merienda, sans-serif;
+    font-weight: 600;
+  }
+  
+
+.solgan {
+    color:  #3778c2;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: Merienda, sans-serif;
+    font-weight: 600;
+  }
