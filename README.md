@@ -6,7 +6,6 @@
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -58,13 +57,6 @@
   
   -Allow users to securely share passwords with trusted contacts, with options for setting permissions and expiration dates.
   
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> [Live Demo]()
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
